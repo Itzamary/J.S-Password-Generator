@@ -40,17 +40,19 @@ function generatePassword(){
     } else {
       window.alert("please pick a number");
     }
-    return char;
-  }
-
-  pickAndChoose();
-
   var pickAgain = window.prompt("Do you want to pick one more? type 1 for yes and 2 for no.");
   pickAgain = parseInt(pickAgain);
 
   if (pickAgain === 1 || pickAgain === true){
     pickAndChoose();
   };
+    
+    return char;
+  }
+
+  pickAndChoose();
+
+
   
 
   for (var i = 0; i <= passwordLength; i++){
