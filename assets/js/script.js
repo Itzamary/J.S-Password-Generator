@@ -13,16 +13,19 @@ function generatePassword(){
 
   passwordLength = parseInt(passwordPrompt);
 
-  if(passwordLength < 8 || passwordLength> 128) {
+  if(passwordLength < 8 || passwordLength> 128 || isNaN(passwordLength) === true) {
     window.alert("You need to provide an accepted length. Please try again.")
     return generatePassword();
-
   }
+
+ 
+
+  
 
 
 
   function pickAndChoose(){
-    var promptMe =  window.prompt("Please choose one at a time: Type 1 for uppercase, 2  for lowercase, 3 for numbers, 4 for special characters. if you want to add another condition type 5;");
+    var promptMe =  window.prompt("Please choose one at a time: Type 1 for uppercase, 2  for lowercase, 3 for numbers, 4 for special characters.");
     var promptNum = parseInt(promptMe);
 
     if (promptNum === 1){
@@ -39,13 +42,16 @@ function generatePassword(){
 
     } else {
       window.alert("please pick a number");
-    }
-  var pickAgain = window.prompt("Do you want to pick one more? type 1 for yes and 2 for no.");
-  pickAgain = parseInt(pickAgain);
+      return pickAndChoose();
 
-  if (pickAgain === 1 || pickAgain === true){
-    pickAndChoose();
-  };
+    }
+
+    var pickAgain = window.prompt("Do you want to pick one more? type 1 for yes and 2 for no.");
+    pickAgain = parseInt(pickAgain);
+
+    if (pickAgain === 1 || pickAgain === true){
+      return pickAndChoose();
+    };
     
     return char;
   }
